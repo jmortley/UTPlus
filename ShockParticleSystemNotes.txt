@@ -1,0 +1,52 @@
+P_UT+_Combo.uasset
+
+The multiplier is defined as ComboRadius/600. Most of the particle system seems to have been based on the value 600. Some things may not map perfectly to Epic's, but it looks close enough.
+
+Change the following emitter values:
+
+Rays
+Initial Size
+Default:
+Max: 0, 3.2, 11.5
+Min: 0, 1.5, 9.0
+
+New:
+Max: 0, 3.2*multiplier, 11.5*multiplier
+Min: 0, 1.5*multiplier, 9.0*multiplier
+
+
+Orb_OutStop
+This emitter uses a sphere mesh with size of 320x320x320 (aka radius of 160), so scaling to ComboRadius is ComboRadius*2/320
+Initial Size
+Default:
+X: 1.875 (= 300 radius? wat?)
+New:
+X: ComboRadius*2/320 (Seems to match damage radius very closely)
+
+Orb_RadiusIndicator
+Initial Size
+Same values as Orb_Outstop
+
+ArcFrames1/ArcFrames2/ArcFrames3
+All values are linked, so changing 1 changes the others
+Initial Size
+Max: X: ComboRadius*2*1.2
+Min: X: ComboRadius*2*1.1
+
+Flare Init
+Initial Size
+Default:
+X: 1100
+New:
+X: 1100*multiplier
+
+Flare Core
+Initial Size
+Default:
+Max: X: 512
+Min: X: 350
+
+New:
+Max: X: 512/600*ComboRadius
+Min: X: 350/600*ComboRadius
+
